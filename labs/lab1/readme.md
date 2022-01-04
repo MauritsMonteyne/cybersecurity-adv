@@ -184,7 +184,7 @@ Input and output of the telnet session.
 
 4. Is setting up a Telnet connection method to e.g. a Cisco router or switch a good practice?
     ```
-        Nee, is in plain text zonder encryption.
+    Nee, is in plain text zonder encryption.
     ```
 
 ### SSH Capture Instructions
