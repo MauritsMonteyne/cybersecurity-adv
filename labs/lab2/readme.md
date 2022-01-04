@@ -1,4 +1,4 @@
-# Lab 2: DNS/TCP Dump
+# Lab 2: DNS/TCPDump
 
 ## DNS
 DNS is a complex distributed system, where billions of clients get replies from countless servers. We approach DNS from a client's point of view: what kind of information can we get? Can this information be used to explore the network of an organisation - a.k.a. a form of **reconnaissance**.
