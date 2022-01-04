@@ -51,10 +51,10 @@ portlvs.ugent.be.
 #### DNS lookup questions
 1. Which IP address does [www.hogent.be](www.hogent.be) have? Which servers are responsible for this domain?
     ```console
-    maurits@osboxes:~$ dig +short www.hogent.be
+    $ dig +short www.hogent.be
     hogent.be.
     193.190.173.132
-    maurits@osboxes:~$ dig +short NS www.hogent.be
+    $ dig +short NS www.hogent.be
     hogent.be.
     ns3.belnet.be.
     ens2.hogent.be.
@@ -65,9 +65,9 @@ portlvs.ugent.be.
 
 2. [www.belnet.be](www.belnet.be) returns an IP address, but if you try to convert this IP address into a URL (reverse lookup), you notice that the server has a different name. Which? Explain how you found this.
     ```console
-    aurits@osboxes:~$ dig +short www.belnet.be
+    $ dig +short www.belnet.be
     217.19.230.167
-    maurits@osboxes:~$ dig +short -x 217.19.230.167
+    $ dig +short -x 217.19.230.167
     217.19.230.167.static.hosted.by.combell.com.
     ```
 
@@ -81,7 +81,7 @@ The above examples give you 'normal' DNS information. However, consulting other 
 
 1. Can you find the authoritative servers for the domain `hogent.be`?
     ```console
-    maurits@osboxes:~$ dig +short NS hogent.be 
+    $ dig +short NS hogent.be 
     ns3.belnet.be.
     ens2.hogent.be.
     ns2.belnet.be.
@@ -91,7 +91,7 @@ The above examples give you 'normal' DNS information. However, consulting other 
 
 2. Repeat for `belgium.be`. Can you tell which cloud platform is being used for the servers of this domain?
     ```console
-    maurits@osboxes:~$ dig +short NS belgium.be
+    $ dig +short NS belgium.be
     dns2s.belgium.be.
     dns1w.fgov.be.
     dns3a.westeurope.cloudapp.azure.com.
@@ -102,7 +102,7 @@ The above examples give you 'normal' DNS information. However, consulting other 
 
 3. Repeat for stad.gent. Can you tell which provider is receiving the tax payers money in the city of Ghent?
     ```console
-    maurits@osboxes:~$ dig +short NS stad.gent
+    $ dig +short NS stad.gent
     ns4.combell.net.
     ns3.combell.net.
 
@@ -111,7 +111,7 @@ The above examples give you 'normal' DNS information. However, consulting other 
 
 4. Can you discover which company is providing the e-mail software for hogent.be. based on the DNS info?
     ```console
-    maurits@osboxes:~$ dig +short MX hogent.be
+    $ dig +short MX hogent.be
     0 hogent-be.mail.protection.outlook.com.
 
     => Microsoft
@@ -119,7 +119,7 @@ The above examples give you 'normal' DNS information. However, consulting other 
 
 5. Repeat for vlaanderen.be
     ```console
-    maurits@osboxes:~$ dig +short MX vlaanderen.be
+    $ dig +short MX vlaanderen.be
     2 vlaanderen-be.mail.protection.outlook.com.
 
     => Microsoft
@@ -189,7 +189,7 @@ In Wireshark, you can capture traffic and then start filtering in all the conten
 
 1. Go through the man page of tcpdump. How can you find all available interfaces on your device? Which one will you use? When in doubt, use any.
     ```console 
-    maurits@osboxes:~$ tcpdump -D
+    $ tcpdump -D
     1.enp0s3 [Up, Running]
     2.lo [Up, Running, Loopback]
     3.any (Pseudo-device that captures on all interfaces) [Up, Running]
@@ -203,7 +203,7 @@ In Wireshark, you can capture traffic and then start filtering in all the conten
 
 2. Now let's try to capture a plain HTTP GET request. Use the command curl http://www.test.atlantis.ugent.be to issue an HTTP GET request. How can you make sure you'll only see HTTP traffic (both requests and responses)? Hint: https://ds-lab-05.cyberwarrior.com/filteringtraffic/
     ```console
-    maurits@osboxes:~$ curl http://www.test.atlantis.ugent.be
+    $ curl http://www.test.atlantis.ugent.be
     ...
     ```
 
@@ -216,7 +216,7 @@ In Wireshark, you can capture traffic and then start filtering in all the conten
     Save capture file als `.pcap` bestand.
     ```
     ```console
-    maurits@osboxes:~$ tcpdump -r trace_file.pcap
+    $ tcpdump -r trace_file.pcap
     ...
     ```
 
@@ -232,7 +232,7 @@ ou can test this with an actual HTTP login at http://testphp.vulnweb.com/login.p
 1. You'll notice there will be a lot of output on the terminal line. Can you add a filter to tcpdump so we only see the HTTP POST request, but not any responses? Think about direction of requests and answers!
 
     ```console 
-    maurits@osboxes:~$ sudo tcpdump -i enp0s3 -s 0 -A 'tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x504F5354'
+    $ sudo tcpdump -i enp0s3 -s 0 -A 'tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x504F5354'
     tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
     listening on enp0s3, link-type EN10MB (Ethernet), capture size 262144 bytes
     17:36:22.407946 IP osboxes.53310 > ec2-44-228-249-3.us-west-2.compute.amazonaws.com.http: Flags [P.], seq 3791969654:3791969840, ack 2894356956, win 502, options [nop,nop,TS val 717206503 ecr 3096114983], length 186: HTTP: POST /login.php HTTP/1.1
@@ -256,7 +256,7 @@ To try this with HTTPS, you need to filter on the HTTPS port. Which port is this
 
 1. Build a tcpdump filter which filter out all the HTTPS traffic if you e.g. surf to https://www.hogent.be using curl.
     ```console
-    maurits@osboxes:~$ sudo tcpdump -i enp0s3 -s 0 'tcp port https'
+    $ sudo tcpdump -i enp0s3 -s 0 'tcp port https'
     ```
 
 2. Can you try to retrieve your credentials now? Why (not)?
@@ -274,7 +274,7 @@ HTTP(S) is the majority of Internet traffic; however no URL will be working with
 
 2. Lookup the URL '[www.hogent.be](www.hogent.be)', asking it to DNS server 8.8.4.4. Can you tcpdump this request (only)? How many DNS packets do you see?
     ```console
-    maurits@osboxes:~$ sudo tcpdump -i enp0s3 -s 0 'udp port 53 and host 8.8.4.4'
+    $ sudo tcpdump -i enp0s3 -s 0 'udp port 53 and host 8.8.4.4'
     17:54:33.897359 IP osboxes.52658 > dns.google.domain: 22692+ A? www.hogent.be. (31)
     17:54:33.922459 IP dns.google.domain > osboxes.52658: 22692 2/0/0 CNAME hogent.be., A 193.190.173.132 (61)
     17:54:33.926962 IP osboxes.50732 > dns.google.domain: 15083+ AAAA? hogent.be. (27)
@@ -283,7 +283,7 @@ HTTP(S) is the majority of Internet traffic; however no URL will be working with
 
 3. Repeat this for the load-balanced URL of [www.tinder.com](www.tinder.com). How many packets do you now see? Where can you find the information of the multiple IP addresses that are given as an answer to your lookup client?
     ```console
-    maurits@osboxes:~$ sudo tcpdump -i enp0s3 -s 0 'udp port 53 and host 8.8.4.4'
+    $ sudo tcpdump -i enp0s3 -s 0 'udp port 53 and host 8.8.4.4'
     tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
     listening on enp0s3, link-type EN10MB (Ethernet), capture size 262144 bytes
     ...
