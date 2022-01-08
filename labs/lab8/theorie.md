@@ -91,3 +91,33 @@ Link: https://learning.edx.org/course/course-v1:NYUx+CYB.PEN.1+1T2021/block-v1:N
     - OS
     - Software
 - Web interface en CLI
+
+
+
+## Meta data
+Link: https://learning.edx.org/course/course-v1:NYUx+CYB.PEN.1+1T2021/block-v1:NYUx+CYB.PEN.1+1T2021+type@sequential+block@969153ae1a86412ab1d60309ac9a05f8/block-v1:NYUx+CYB.PEN.1+1T2021+type@vertical+block@3716cfbaba124bc6ac3be498eb741e2e
+
+**Metadata**
+- Data over data (eigenaars, file type, locatie etc)
+- Sommige files bevatten meer metadata dan andere
+- Files kunnen van overal komen (web, emails, contracten etc)
+- Tools:
+    - ExifTool (CLI)
+    - FOCA (GUI)
+    - Strings command (linux)
+
+
+
+## Recon-ng
+Link: https://learning.edx.org/course/course-v1:NYUx+CYB.PEN.1+1T2021/block-v1:NYUx+CYB.PEN.1+1T2021+type@sequential+block@969153ae1a86412ab1d60309ac9a05f8/block-v1:NYUx+CYB.PEN.1+1T2021+type@vertical+block@86a843c05c1845bcb34db2c5917d952d
+
+
+- Tool die helpt bij uitvoeren en automatiseren van recon
+- Doet het werk niet voor je! Je moet zelf weten wat/hoe te gebruiken
+- Combineert tal van andere tools (via recon modules)
+- 5 categoriën:
+    - Discovery
+    - Exploitation
+    - Import
+    - Reporting
+    - Recon (Merendeel tool)
