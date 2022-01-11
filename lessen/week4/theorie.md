@@ -136,7 +136,7 @@ Legitieme applicaties tunnelen van hun communictie via TCP 80. Kan problemen opl
 
 
 ### covert_tcp
-- Verstoppen van data in TCP header
+- **Verstoppen van data in TCP header**
 - Kan in optionele fiels, maar voorkeur naar verplichte fields
 - Netwerk toestellen kunnen optionele field overschrijven/verwijderen
 - Problemen met NAT, past verplichte velden vaak aan
@@ -147,4 +147,58 @@ Legitieme applicaties tunnelen van hun communictie via TCP 80. Kan problemen opl
 
 
 ### Reverse WWW Shell
-s25
+- HTTP gebruiken als covert channel op andere manier via web shell
+- Communicatie ziet eruit als gewoon HTTP traffic
+- Contacteert attacker server elke 60s en pullt commando's binnen
+- Wordt ook gebruikt door legitieme software (GoToMyPC)
+
+
+### Removal of Evidence
+- Veel progromma's laten sporen achter (ook rootkits en Trojans)
+- Attacker kan logs verwijderen, maar valt op (*admin priveleges nodig*)
+- Slimmer van **logs aan te passen** en zo sporen te verwijderen (*admin priveleges nodig*)
+- Op Windows passeren alle logs door Event Log en daarna naar aparte log files afhankelijk van event
+- Zijn binaire files en moeilijk aan te passen (=> speciale tools, Winzapper)
+- 3 grote categoriën:
+    - Security (minimum deze aanpassen)
+    - System
+    - Application
+
+
+### Unix Logging
+- Logs vaak plaintext
+- Eenvoudig aan te passen met juist priveleges
+
+
+### Shell History Files
+- Geschiedenis van gebruikte commando's 
+- Plaintext, eenvoudig aan te passen
+- Vaak enkel bij correct afsluiten van shell => forcefully afsluiten => geen logs
+
+
+### Defenses
+- Logging aanzetten
+- Monitoren logs
+- Log data streamen naar aparte server
+- Toegang tot logs beperken
+- Logs encrypteren
+- Maak logs "append-only"
+
+
+### Hidden Files
+- Attacker kan zich verstoppen via hidden files
+- Vaak gewoon verborgen voor basic folder listings (makkelijk te vinden)
+- Linux: files startend met `.`
+- Windows: speciale flag
+
+
+### Hidden Files in Windows
+- Windows biedt betere manier om files te verstoppen: **Alternate Data Streams (ADS)**
+- Laat toe meerdere data streams op te slaan in 1 file, terwijl standaard maar 1 stream effectief wordt gebruikt 
+- Vb. data verstoppen in calc.exe (Calculator zal nog steeds werken)
+
+
+### Additional Defenses
+- Checking file integriteit
+- Host based Intrusion Detection System (IDS)
+- ADS-aware tools gebruiken
