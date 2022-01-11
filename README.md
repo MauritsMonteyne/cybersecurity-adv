@@ -1,1 +1,37 @@
-# cybersecurity-adv
+# Cybersecurity Advanced
+
+- Week 1
+    - [x] Lab
+- Week 2
+    - [x] Theorie
+    - [x] Lab
+- Week 3
+    - [x] Theorie
+    - [x] Lab
+- Week 4
+    - [ ] Theorie
+    - [ ] Lab
+- Week 5
+    - [ ] Theorie
+    - [ ] Lab
+- Week 6
+    - [ ] Theorie
+    - [ ] Lab
+- Week 7
+    - [ ] Theorie
+    - [ ] Lab
+- Week 8
+    - [ ] Theorie
+    - [ ] Lab
+- Week 9
+    - [ ] Theorie
+    - [ ] Lab
+- Week 10
+    - [ ] Theorie
+    - [ ] Lab
+- Week 11
+    - [ ] Theorie
+    - [ ] Lab
+- Week 12
+    - [ ] Theorie
+    - [ ] Lab
