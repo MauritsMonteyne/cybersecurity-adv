@@ -7,14 +7,14 @@
     - [x] Lab
     - [x] Theorie
 - Week 3
-    - [x] Lab
+    - [ ] Lab
     - [x] Theorie
 - Week 4
     - [ ] Lab
     - [ ] Theorie
 - Week 5
     - [ ] Lab
-    - [ ] Theorie
+    - [x] Theorie
 - Week 6
     - [x] Lab
     - [x] Theorie
