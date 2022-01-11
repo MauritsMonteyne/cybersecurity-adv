@@ -11,7 +11,7 @@
     - [x] Theorie
 - Week 4
     - [ ] Lab
-    - [ ] Theorie
+    - [x] Theorie
 - Week 5
     - [ ] Lab
     - [x] Theorie
@@ -19,7 +19,6 @@
     - [x] Lab
     - [x] Theorie
 - Week 7
-    - [ ] Lab
     - [x] Theorie
 - Week 8
     - [ ] Lab
@@ -28,8 +27,7 @@
     - [ ] Lab
     - [x] Theorie
 - Week 10
-    - [ ] Lab
-    - [x] Theorie
+    - Guest Lecture
 - Week 11
     - [ ] Lab
     - [x] Theorie
