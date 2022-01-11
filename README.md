@@ -2,36 +2,36 @@
 
 - Week 1
     - [x] Lab
+    - [x] Theorie
 - Week 2
-    - [x] Theorie
     - [x] Lab
+    - [x] Theorie
 - Week 3
-    - [x] Theorie
     - [x] Lab
+    - [x] Theorie
 - Week 4
-    - [ ] Theorie
     - [ ] Lab
+    - [ ] Theorie
 - Week 5
-    - [ ] Theorie
     - [ ] Lab
+    - [ ] Theorie
 - Week 6
-    - [ ] Theorie
-    - [ ] Lab
+    - [x] Lab
+    - [x] Theorie
 - Week 7
-    - [ ] Theorie
     - [ ] Lab
+    - [x] Theorie
 - Week 8
-    - [ ] Theorie
     - [ ] Lab
+    - [x] Theorie
 - Week 9
-    - [ ] Theorie
     - [ ] Lab
+    - [x] Theorie
 - Week 10
-    - [ ] Theorie
     - [ ] Lab
+    - [x] Theorie
 - Week 11
-    - [ ] Theorie
     - [ ] Lab
+    - [x] Theorie
 - Week 12
-    - [ ] Theorie
     - [ ] Lab
