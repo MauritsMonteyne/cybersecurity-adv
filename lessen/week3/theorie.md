@@ -108,7 +108,7 @@ Meeste kwetsbaarheden zijn al gepatcht, maar idee is steeds hetzelfde: niet stan
 - Vb. Reverse Shell iTunes Exploit
 
 
-### Tools & Implementation (Relevant?)
+### Tools & Implementation (Niet kennen)
 - SATAN (Security Admin Tool for Analyzing Networks)
     - Scanning tool
 - Nessus Professional
@@ -123,15 +123,89 @@ Meeste kwetsbaarheden zijn al gepatcht, maar idee is steeds hetzelfde: niet stan
 ### Metasploit
 - Meest populaire framework
 - Pen Testing software
-- Makkelijk deployen en hergebruiken van code/exploits
+- Makkelijk deployen en (her)gebruiken van code/exploits
 - Open source
 
 
 ### Offensive Security Issues
 **Vulnerability**: kwetsbaarheid in een systeem die beveiliging vermindert
+
 **Exploit**: code die gebruik maakt van vulnerability
-**Payload**: code die bezorgd wordt door exploit (draait op target systeem)
+
+**Payload**: code die bezorgd wordt door exploit en dan uitgevoerd wordt(draait op target systeem)
+
 **Encoders**: methode om payload te verdoezelen zodat het niet opgemerkt wordt
 
 
 ### Payloads
+- **Shellcode**: laat uitvoeren van inline shell toe op systeem waaraan payload werd afgeleverd
+- Verschillende types payloads:
+    - **Inline**
+        - Single stage payload
+        - Uit te voeren shellcode wordt geleverd in 1 blok
+        - Soms te weinig plaats voor volledig payload
+    - **Staged**
+        - Multi stage payload
+        - Eerst wordt stub gestuurd
+        - Stub haalt daarna rest van shellcode binnen
+    - **Reversed**
+        - Payload op target maakt zelf verbinding met attacker i.p.v. omgkeerd 
+        - Bypass firewall op incoming traffic
+    - NoNx
+        - Omzeilt Data Execution Protection
+    - PassiveX
+        - Omzeilt outbound firewall restricities op payload communicaties
+- Meterpreter is meest gebruikte payload door z'n flexibiliteit
+
+
+### Meterpreter
+- Geavanceerde payload die werkt door middel van het **DDL injecties**
+- **Enkel op Windows**
+- Volledig in memory (geen disk rights nodig)
+- Voordelen
+    - Kan uitgebreid worden met scripts en plugins
+    - Kan communicatie encrypteren tussen target en attacker
+    - Remote code execution
+    - Migrereren processen
+    - Aanpassen register
+    - Pivoting
+
+Hoe wordt payload deliverd?
+1. Deliveren exploit op systeem, zodat code uitgevoerd kan worden
+2. Deliveren first stage payload (haalt rest payload binnen)
+3. Tweede stage payload worden binnen gehaald
+4. Meterpreter injecteer volledige server DLL
+5. Client en server communiceren
+
+Meterpreter commando's
+| Commando | Uitleg |
+| :--- | :--- |
+| `migrate` | Migrreren van processen (o.a. meterpeter.dll verstoppen) |
+| `sysinfo` | Toont systeem info |
+| `download` | Download van of naar target |
+| `upload` | Upload naar target |
+| `getuid` | Toont userid (permissions) |
+| `execute` | Uitvoeren commando op target |
+| `hashdump` | Dumpt Security Management Database (SAM) (offline cracking) |
+| `clearev` | Opkuisen Windows event logs |
+
+
+### Pivoting
+- Compromised machine gebruiken om andere hosts of netwerken verder te exploiteren (aanvallen, data stelen etc)
+- Misbruik maken van het beveiliging en vertrouwen tussen machines van zelfde netwerk/organisatie
+- Compromised machine wordt nieuwe HQ van attacker 
+- Vb. Drive by browser attack
+    - Vanop compromised machine achter een firewall andere machines achter deze firewall aanvallen
+
+
+### Persistence
+- Exploits werken niet altijd opnieuw/ zijn niet altijd 100% betrouwbaar
+- Na verkrijgen van volledig controle willen we controle behouden
+- Eens Meterpreter in het system zit, moet het daar altijd zitten
+- Opties:
+    - Persistence Script
+        - Start Meterpreter on boot
+        - Gebruikt rootkit om aanwezigheid service te verbergen
+    - Persistence Service
+        - Zal automatisch en periodiek terug verbinding maken met attakcer
+        - Moeten wel wachten op verbinding
