@@ -144,7 +144,8 @@ Normaal verloop TCP:
 ## Week 34 - section 4-6: netcat
 ### Netcat
 - Simpele tool om verbinding te maken met port of te luisteren naar port.
-- Niet geëncrypteerd, plain text
+- Op bijna alle plaformen beschikbaar
+- Niet geëncrypteerd, plain text (interpreteert data ook niet vs telnet)
 - Kan script uitvoeren
 - Kali variant ncat is wel geëncrypteerd
 - Kan ook files versturen met netcat
